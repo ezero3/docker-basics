@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            width: 100%;
+            max-width: 550px;
+            height: fit-content;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .input-row input[type="text"] {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-row input[type="text"]:focus {
+            border-color: #4a90d9;
+        }
+
+        .input-row button {
+            background-color: #4a90d9;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            width: 44px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .input-row button:hover {
+            background-color: #3a7bc8;
+        }
+
+        .todo-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            border-left: 4px solid #4a90d9;
+            background: #fafafa;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .todo-item:hover {
+            background: #f0f4f8;
+        }
+
+        .todo-content .task-name {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+        }
+
+        .todo-content .timestamp {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        .delete-btn {
+            color: #e74c3c;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .delete-btn:hover {
+            background: #fdeaea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>&#128203; TODO App</h1>
+
+        <form action="/add" method="POST" class="input-row">
+            <input type="text" name="task" placeholder="Add a new task..." autofocus>
+            <button type="submit">+</button>
+        </form>
+
+        <div class="todo-list">
+            {% for todo in todos %}
+            <div class="todo-item">
+                <div class="todo-content">
+                    <div class="task-name">{{ todo.task }}</div>
+                    <div class="timestamp">{{ todo.created_human }}</div>
+                </div>
+                <a href="/delete/{{ todo.id }}" class="delete-btn">&times;</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
