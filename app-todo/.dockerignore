@@ -1,2 +1,10 @@
 Dockerfile
-docekr-compose.yml
+docker-compose.yml
+explanation.md
+.dockerignore
+__pycache__/
+*.pyc
+
+.dockerignore
+__pycache__/
+*.pyc

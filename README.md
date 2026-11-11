@@ -43,6 +43,7 @@ The application is a clean **TODO App** that allows users to create, view, and d
 - **[requirements.txt](./app-todo/requirements.txt)**: Python dependencies (`flask`, `humanize`, `psycopg2-binary`, `sqlalchemy`).
 - **[Dockerfile](./app-todo/Dockerfile)**: Defines how to package the Flask application into a lightweight Python container image.
 - **[docker-compose.yml](./app-todo/docker-compose.yml)**: Orchestrates the multi-container environment, linking the Flask web app with a persistent **PostgreSQL** database service and volume storage.
+- **[explanation.md](./app-todo/explanation.md)**: Detailed step-by-step guide explaining every Docker file, line-by-line breakdown, caching layers and terminal commands.
 
 ---
 
