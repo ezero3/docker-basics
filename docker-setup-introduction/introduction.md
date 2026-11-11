@@ -1,9 +1,3 @@
-# 🐳 Docker Basics
-
-A hands-on introduction to **Docker** — learn the fundamentals of containerization through practical examples.
-
----
-
 ## Introduction - What is Docker?
 
 **Docker** is an open-source platform that allows you to **package, distribute and run applications** inside lightweight, portable units called **containers**.
